@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-10 offset-1">
+        <form (submit)="postComment()">
+            <div class="form-group">
+              <label for="nameInput">Name</label>
+              <input type="text" class="form-control" id="nameInput" name="nameInput"  placeholder="Your name" [(ngModel)]="newComment.author">
+            </div>
+            <div class="form-group">
+              <label for="textInput">Comment</label>
+              <input type="text" class="form-control" id="textInput" name="textInput"  placeholder="Your comment" [(ngModel)]="newComment.text">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+
+<div class="row" *ngFor="let comment of comments">
+    <div class="col">
+        <div class="row">
+            <div class="col-2">
+                <b>{{comment.author}}</b>
+            </div>
+            <div class="col-10">
+                <small class="float-right">{{comment.date | date}}</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{comment.text}}
+            </div>
+        </div>
+    </div>
+</div>
